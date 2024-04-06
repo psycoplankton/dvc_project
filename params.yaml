@@ -1,0 +1,22 @@
+# params.yaml file contains the parameters for the dvc pipelines. The good thing about naming our parameter file as params.yaml is that dvc knows that it has to look for a file named prams.yaml for the parameters for the pipelines, otherwise whle building we have to specify the name of the file wihch contains the parameters
+
+data:
+  csv_file_path: ./archive/IMDB_Dataset.csv
+  test_set_ratio: 0.3
+  train_csv_save_path: ./archive/train.csv
+  test_csv_save_path: ./archive/test.csv
+    
+features:
+  vectorizer: count-vectorizer
+  train_features_save_path: ./archive/train.joblib
+  test_features_save_path: ./archive/test.joblib
+
+train: 
+  penalty:
+  C: 1.0 
+  solver: lbfgs
+  model_save_path: ./archive/model.joblib
+
+evaluate:
+  metric: accuracy
+  results_save_path: ./archive/results.yaml
